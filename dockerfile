@@ -28,6 +28,9 @@ RUN apt-get clean && \
 RUN useradd kibana
 RUN chown -R kibana:kibana /opt/kibana
 
+RUN /opt/kibana/bin/kibana plugin --install elastic/sense
+#RUN /opt/kibana/bin/kibana plugin --install elastic/timelion
+
 
 COPY conf/kibana.yml /opt/kibana/config/kibana.yml
 COPY conf/kibana-entrypoint /opt/kibana/kibana-entrypoint
